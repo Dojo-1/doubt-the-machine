@@ -8,7 +8,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "vgpu": "^0.4.0"
+    "vgpu": "^0.4.1"
   },
   "devDependencies": {
     "@webgpu/types": "^0.1.72",
