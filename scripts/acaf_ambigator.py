@@ -474,6 +474,45 @@ class Ambigator:
                 yield generator(random.Random(f"{generator.__name__}:{seed}"), seed)
 
 
+SNAPSHOT_SKIP = (".git", "__pycache__", "node_modules", ".pytest_cache")
+
+
+def snapshot_tracked(root: Path, dest: Path) -> None:
+    """Copy only git-tracked paths (working-tree content) into ``dest``.
+
+    Run artifacts written into the checkout (e.g. ``--json acaf.json``) must not
+    leak into the fuzzed workspace: ``check_rule0.py`` scans every file, so a
+    stray report containing mutated wording fails the baseline and turns every
+    MUST_PASS case into a false alarm and every MUST_CATCH case into a vacuous
+    catch. Falls back to a filtered tree copy outside a git checkout.
+    """
+    try:
+        listed = subprocess.run(
+            ["git", "ls-files", "-z", "--cached"],
+            cwd=root, capture_output=True, check=True,
+        ).stdout.decode("utf-8").split("\0")
+    except (OSError, subprocess.CalledProcessError):
+        shutil.copytree(root, dest, ignore=shutil.ignore_patterns(*SNAPSHOT_SKIP))
+        return
+    dest.mkdir(parents=True)
+    for rel in filter(None, listed):
+        src = root / rel
+        if not src.is_file():  # deleted in the working tree, or a submodule gitlink
+            continue
+        target = dest / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, target)
+
+
+def require_clean_baseline(workspace: Path, run) -> None:
+    """Refuse to fuzz when the unmutated workspace already fails the checker."""
+    failed, message = run(workspace)
+    if failed:
+        raise RuntimeError(
+            "ACAF baseline fails before any mutation; outcomes would be vacuous: " + message
+        )
+
+
 def run_checker(root: Path) -> tuple[bool, str]:
     """Run the Actor. Returns (failed, message)."""
     process = subprocess.run(
@@ -493,11 +532,8 @@ def fuzz(seeds: int, base_seed: int, verbose: bool) -> list[Outcome]:
 
     with tempfile.TemporaryDirectory(prefix="acaf-") as tmp:
         pristine = Path(tmp) / "pristine"
-        shutil.copytree(
-            ROOT,
-            pristine,
-            ignore=shutil.ignore_patterns(".git", "__pycache__", "node_modules", ".pytest_cache"),
-        )
+        snapshot_tracked(ROOT, pristine)
+        require_clean_baseline(pristine, run_checker)
 
         for mutation in ambigator.sweep(seeds, base_seed):
             work = Path(tmp) / "work"
