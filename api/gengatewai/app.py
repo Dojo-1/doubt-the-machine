@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import os
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from api.gengatewai.contracts import (
     API_VERSION,
@@ -36,6 +40,11 @@ app = FastAPI(
     summary="Deterministic API exposing the Doubt the Machine verification gate.",
 )
 
+# Mount static files for Vercel Web Analytics support
+PUBLIC_DIR = Path(__file__).parent.parent.parent / "public"
+if PUBLIC_DIR.exists():
+    app.mount("/static", StaticFiles(directory=str(PUBLIC_DIR)), name="static")
+
 
 @app.get("/")
 def service_index() -> dict[str, Any]:
@@ -47,6 +56,7 @@ def service_index() -> dict[str, Any]:
         "openai_compatible_model": OPENAI_COMPATIBLE_RUNNER_MODEL,
         "endpoints": [
             "/healthz",
+            "/web",
             *OPENAI_COMPATIBLE_ENDPOINTS,
             "/v1/gates/doubt-the-machine",
             "/v1/gates/doubt-the-machine/evaluate",
@@ -55,6 +65,15 @@ def service_index() -> dict[str, Any]:
         ],
         "does_not_decide_truth": True,
     }
+
+
+@app.get("/web")
+def web_interface():
+    """Serve the web interface with Vercel Web Analytics"""
+    index_path = PUBLIC_DIR / "index.html"
+    if index_path.exists():
+        return FileResponse(str(index_path), media_type="text/html")
+    raise HTTPException(status_code=404, detail="Web interface not found")
 
 
 @app.get("/healthz")
