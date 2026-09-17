@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "repository": "jesusvilela/doubt-the-machine",
+  "repository": "Dojo-1/doubt-the-machine",
   "branches": {
     "dev": {
       "ruleset": "dev-integration-gate",

@@ -52,7 +52,7 @@ def openai_models() -> dict[str, Any]:
                 "id": OPENAI_COMPATIBLE_RUNNER_MODEL,
                 "object": "model",
                 "created": MODEL_CREATED_AT,
-                "owned_by": "jesusvilela/doubt-the-machine",
+                "owned_by": "Dojo-1/doubt-the-machine",
             }
         ]
         + local_models,
