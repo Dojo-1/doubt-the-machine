@@ -85,7 +85,7 @@ The key word is **independent**. A model critiquing its own answer can reveal in
 | 1 | **Treat output as a proposal, not proof** | Generated text does not certify itself. |
 | 2 | **Fluent does not mean true** | Readability can increase trust without increasing accuracy. |
 | 3 | **Generated detail needs provenance** | New reasoning is possible; unsupported specifics still need evidence. |
-| 4 | **Every rewrite can lose something** | Check dropped conditions, exceptions, and uncertainty. |
+| 4 | **Every rewrite can lose something** | Check dropped conditions, exceptions, and uncertainty; copied live claims can also go stale when their source changes. |
 | 5 | **Long chats get noisy** | Old assumptions and errors can bias later answers. Re-state the task when needed. |
 | 6 | **Repeat what matters** | Restate critical constraints, invariants, and definitions. |
 | 7 | **One answer is one sample** | Re-sample when variance matters; compare methods, not only wording. |
