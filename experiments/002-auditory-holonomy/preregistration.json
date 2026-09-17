@@ -1,0 +1,123 @@
+{
+  "experiment_id": "002-auditory-holonomy",
+  "status": "preregistered-not-run",
+  "date": "2026-09-02",
+  "framework": "Doubt the Machine",
+  "claim_under_test": "Auditory processing may contain reproducible path-dependent transport structure between heterogeneous representational states. A holonomy interpretation is admissible only if a loop-sensitive invariant predicts held-out observations beyond matched conventional dynamical controls and survives representation attacks.",
+  "evidence_floor": {
+    "A0_sound_equals_neural_vibration": "R",
+    "A1_order_history_dependence": "H",
+    "A2_loop_residual_structure": "H",
+    "A3_candidate_holonomy": "H",
+    "A4_hypercomplex_discriminating_value": "H",
+    "A5_mind_polyholonomic_ecology": "S"
+  },
+  "typed_spaces": [
+    "X_stimulus",
+    "X_local",
+    "X_context",
+    "X_observation",
+    "R_transport"
+  ],
+  "primary_objects": {
+    "transport": "T_a or T_ab",
+    "path_transport": "PT_gamma = composition of declared transports along gamma",
+    "loop_defect": "D_gamma(x) = d(x, PT_gamma(x))",
+    "warning": "Non-zero loop defect is not sufficient evidence for geometric holonomy."
+  },
+  "primary_prediction": "A preregistered loop-sensitive statistic improves held-out prediction beyond matched conventional dynamical controls and its success/failure conclusion is stable under admissible invertible reparameterizations.",
+  "secondary_prediction": "Only after the primary prediction survives, a parity-matched hypercomplex local algebra may add held-out predictive value or expose a preregistered invariant not reproduced by matched real-valued controls.",
+  "baselines": [
+    "linear real-valued state-space model",
+    "nonlinear real-valued recurrent model",
+    "higher-order real-valued model with comparable interaction order",
+    "dynamic/context-dependent real-valued model with comparable gating/topology freedom"
+  ],
+  "negative_controls": [
+    "shuffled transition labels",
+    "task-valid temporal-order shuffle",
+    "identity/no-op loops",
+    "semantically equivalent identity insertions"
+  ],
+  "representation_attacks": [
+    "orthogonal basis changes",
+    "well-conditioned invertible linear reparameterizations",
+    "latent coordinate permutations",
+    "scale transformations with corresponding metric normalization where required"
+  ],
+  "resource_parity": {
+    "required": true,
+    "report": [
+      "trainable_parameter_count",
+      "training_examples_or_sequence_exposure",
+      "optimizer_and_tuning_budget",
+      "wall_clock_training_time",
+      "wall_clock_inference_time",
+      "peak_memory_when_available",
+      "random_seeds",
+      "preprocessing_unique_to_each_model"
+    ]
+  },
+  "data_split_policy": {
+    "train": "used to fit transports/models",
+    "validation": "used only for preregistered model selection/tuning budget",
+    "test": "held out from metric design, representation design, and tuning",
+    "independent_witness": "required for promotion beyond this internal experiment"
+  },
+  "required_raw_outputs": [
+    "per_seed_held_out_predictive_score",
+    "per_loop_raw_defect",
+    "identity_loop_defect",
+    "shuffle_control_defect",
+    "representation_attack_result",
+    "parameter_count",
+    "training_time",
+    "inference_time",
+    "peak_memory_when_available",
+    "failed_runs_and_exclusions"
+  ],
+  "decision_gates": {
+    "A1": {
+      "promote_if": "Order/history dependence is reproducible on held-out data with uncertainty excluding the preregistered negligible-effect region.",
+      "kill_if": "Effect is indistinguishable from the negligible-effect region or attributable to preprocessing/data leakage."
+    },
+    "A2": {
+      "promote_if": "Loop-sensitive residual survives identity/no-op, shuffle, seed, and held-out controls.",
+      "kill_if": "Residual is reproduced by null loops, disappears under held-out evaluation, or is unstable across seeds."
+    },
+    "A3": {
+      "promote_if": "Loop/transport formulation adds held-out predictive information beyond every matched conventional dynamical control and conclusion survives representation attacks.",
+      "kill_if": "A matched ordinary dynamical model explains the effect equally well, or the conclusion flips under admissible representation changes."
+    },
+    "A4": {
+      "promote_if": "Hypercomplex variant yields reproducible parity-matched held-out advantage or a preregistered invariant unavailable to matched real-valued models.",
+      "kill_if": "No reproducible advantage remains after resource parity and representation controls."
+    },
+    "A5": {
+      "promote_if": "never in this experiment",
+      "kill_if": "not applicable; remains semantic outside experimental scope"
+    }
+  },
+  "stop_rules": [
+    "If A3 is killed, stop geometric escalation for this result and do not introduce richer geometry solely to rescue it.",
+    "If A4 is killed, retain any surviving transport measurement but retire hypercomplex necessity.",
+    "Do not interpret failed controls after seeing outcomes by changing the primary claim; amendments must be prospective and timestamped."
+  ],
+  "independence_rule": "The authoring model cannot promote its own claim using only artifacts it authored. Promotion requires at least one witness materially independent in data, code path, assumptions, or authorship.",
+  "forbidden_inferences": [
+    "sound and mind are the same physical vibration",
+    "nonzero loop defect implies geometric holonomy",
+    "order dependence implies hypercomplex necessity",
+    "successful auditory model establishes consciousness theory",
+    "mathematical richness is evidence of biological truth"
+  ],
+  "interpretation_order": [
+    "freeze raw outputs",
+    "evaluate negative controls",
+    "evaluate resource parity",
+    "evaluate representation attacks",
+    "evaluate matched baselines",
+    "apply decision gates",
+    "only then write RESULTS.md"
+  ]
+}

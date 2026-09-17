@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doubt the Machine - GenGatewAI API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            padding: 40px;
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .tagline {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .dev-loop {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            color: #764ba2;
+            font-size: 1.2em;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .endpoints {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .endpoint {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+        .endpoint code {
+            background: #e8eaf6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #333;
+            margin-right: 10px;
+        }
+        .method {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .get {
+            background: #4caf50;
+            color: white;
+        }
+        .post {
+            background: #2196f3;
+            color: white;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+            text-align: center;
+            color: #666;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Doubt the Machine</h1>
+        <p class="tagline">A five-minute operating manual for using AI without confusing fluency with evidence.</p>
+        
+        <div class="dev-loop">
+            DOUBT → MEASURE → TEST → REVERT → REPEAT
+        </div>
+
+        <div class="section">
+            <h2>GenGatewAI API</h2>
+            <p>Deterministic API exposing the Doubt the Machine verification gate.</p>
+        </div>
+
+        <div class="section">
+            <h2>Available Endpoints</h2>
+            <div class="endpoints">
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <code>/</code>
+                    <span>Service index</span>
+                </div>
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <code>/healthz</code>
+                    <span>Health check</span>
+                </div>
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <code>/v1/gates/doubt-the-machine</code>
+                    <span>Framework contract</span>
+                </div>
+                <div class="endpoint">
+                    <span class="method post">POST</span>
+                    <code>/v1/gates/doubt-the-machine/evaluate</code>
+                    <span>Evaluate gate</span>
+                </div>
+                <div class="endpoint">
+                    <span class="method post">POST</span>
+                    <code>/v1/gates/doubt-the-machine/review-records/validate</code>
+                    <span>Validate review records</span>
+                </div>
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <code>/v1/models</code>
+                    <span>List OpenAI compatible models</span>
+                </div>
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <code>/v1/local-models</code>
+                    <span>List local model capacity</span>
+                </div>
+                <div class="endpoint">
+                    <span class="method post">POST</span>
+                    <code>/v1/chat/completions</code>
+                    <span>OpenAI compatible chat completions</span>
+                </div>
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <code>/v1/experiments/001-seeded-errors</code>
+                    <span>Experiment 001 summary</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Rule 0:</strong> Apply this framework to itself. Doubt it, measure it, test it, and revert it when it fails.</p>
+            <p><a href="https://github.com/jesusvilela/doubt-the-machine" target="_blank">View on GitHub</a></p>
+        </div>
+    </div>
+
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

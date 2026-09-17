@@ -126,6 +126,20 @@ The exact retired poster labels were:
 
 **Status:** confirmatory interpretation superseded prospectively before result collection; original preregistration preserved as correction history.
 
+## 2026-09-01 — tick: single-comparator kill condition #1
+
+### Retired: “catches no more seeded important defects than ordinary review” as the whole no-detection-benefit test
+
+**Failure mode:** Falsifier #1 (“No detection benefit”) named only ordinary review, but Experiment 001 is a three-arm design whose promotion policy and `preregistration.json` effect region require the Doubt gate to outperform **both** ordinary review and the equal-effort active placebo. As worded, a gate that beat ordinary review but merely matched the active placebo — a benefit attributable to generic forced deliberation rather than the gate’s epistemic content — would not trip the kill condition, yet also could not be promoted. That asymmetry is a place where a failed result could be rescued.
+
+**Evidence / counterexample:** the promotion policy in `FALSIFIERS.md` requires a preregistered baseline comparison; the 2026-08-30 three-arm hardening entry above requires the gate to “outperform both comparators”; and `preregistration.json` fixes the effect region with `minimum_absolute_escape_reduction_vs_each_comparator` and `maximum_false_alarm_increase_vs_each_comparator`. Direct inspection.
+
+**Replacement:** falsifier #1 now trips when the gate catches no more important defects than ordinary review **or** the active placebo within uncertainty, making non-detection symmetric with the both-comparators promotion rule.
+
+**Status:** replaced; kill-condition scope tightened, no active rule reworded.
+
+**Reversal of the replacement:** if a future independent audit shows the active-placebo requirement was already fully carried by falsifiers #2/#5 or the promotion policy, restore the single-comparator wording and record the reason here.
+
 ## Machine-readable retirement source
 
 `retired.json` is the machine-readable ledger used by CI to prevent retired wording from reappearing on declared public surfaces. This human-readable graveyard preserves the reasons, evidence, and replacements.

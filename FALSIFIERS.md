@@ -15,7 +15,7 @@ The claims below are deliberately narrower than “skepticism is good.” They c
 ## Observations that would weaken or kill the claim
 
 1. **No detection benefit**  
-   Across a preregistered confirmatory set with adequate design precision, the gated condition catches no more seeded important defects than ordinary review within uncertainty.
+   Across a preregistered confirmatory set with adequate design precision, the gated condition catches no more seeded important defects than ordinary review **or** the active placebo within uncertainty. Because promotion requires the gate to outperform both comparators, failing to beat either one counts as no attributable detection benefit.
 
 2. **Operational cost overwhelms the gain**  
    The gate catches more important defects, but only with a review-time increase or external-check burden large enough that the bounded result should be reported as operationally unattractive for that task class rather than promoted. Because no scalar utility function is preregistered, cost remains a separate Pareto coordinate, not a post-hoc exchange rate.
