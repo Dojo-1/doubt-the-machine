@@ -1,0 +1,214 @@
+{
+  "task_id": "research-provenance-2026-11-03",
+  "claim": {
+    "text": "Research comparisons, ablations, and human-presented prose do not by themselves certify independent human origination of ideas or independent scientific validity.",
+    "scope": "Scientific research artifacts and provenance; worked CluSTER example only",
+    "status_before": "H",
+    "assumptions": [
+      "Authorship-process logs were not supplied",
+      "Publication and repository artifacts do not reveal all design decisions"
+    ],
+    "forbidden_promotions": [
+      "Do not infer AI authorship from style or recombination",
+      "Do not promote a toy counterexample to an audited implementation defect",
+      "Do not call this audit independent replication"
+    ]
+  },
+  "specification": {
+    "intended_object": "Typed separation of intellectual provenance, theoretical adequacy, empirical validity, and evidence independence",
+    "invariants": [
+      "A generated narrative is not itself a new external witness",
+      "Evidence must be connected to exact claims and assumptions",
+      "A theory for uniform selection does not automatically apply to deterministic peripheral selection"
+    ],
+    "known_answer_cases": [
+      "For gradients (0,0,10), the full cluster mean equals 10/3 and the selected farthest-point mean equals 10",
+      "A source citation can be true even if an AI wrote the literature review",
+      "A human reviewer can share the originating model's assumptions"
+    ]
+  },
+  "implementation": {
+    "artifact": "audits/2026-11-03-scientific-provenance.md",
+    "commit": "Dojo-1/doubt-the-machine main 1ca72f63a3da7fe63eee9f1927b94e66a07eba8e; dev cbdd17f727e4ba629a673d65283373ff7315cdf6",
+    "environment": "Static GitHub connector inspection; no training run",
+    "live_entrypoint": "api/gengatewai/service.py -> gate_substance.ceremony_warnings",
+    "representation": "Markdown evidence ledger, JSON manifest; API gate heuristics"
+  },
+  "metric": {
+    "name": "Claim-relative evidence assessment, no empirical aggregate score",
+    "type": "typed_tuple",
+    "units": "provenance status, theorem assumptions, performance measure, witness independence",
+    "direction": "partial_order",
+    "raw_before_clipping": true,
+    "semantic_invariance_claimed": false,
+    "equivalence_attacks": [
+      "Paraphrased vs verbatim research explanation must not alter validity inference",
+      "Reordered samples and permuted cluster labels should preserve claimed conclusions",
+      "Changing nominal human/agent reviewer labels must not automatically change independence"
+    ]
+  },
+  "tests": {
+    "black_box": [
+      "Not executed; future source-code check of CluSTER selection path"
+    ],
+    "structural": [
+      "Inspected README, PRINCIPLES, EVIDENCE, FALSIFIERS, gate_substance, service, independence tests"
+    ],
+    "property_based": [
+      "Not executed; optional candidate within-cluster permutation invariance"
+    ],
+    "metamorphic": [
+      "Analytic toy gradient (0,0,10) vs farthest-point selection"
+    ],
+    "fuzzing": [
+      "Existing ACAF checks documented; not executed as part of this audit"
+    ],
+    "historical": [
+      "Existing Experiment 001 remains a preregistered unexecuted design pilot"
+    ]
+  },
+  "controls": {
+    "matched_baselines": [
+      "Uniform within-cluster sampling",
+      "Peripheral within-cluster sampling",
+      "Matched-data-budget random baseline for future performance tests"
+    ],
+    "negative_controls": [
+      "False source references and generated synthetic logs must not be promoted",
+      "Human author of prose but shared model-generated design path",
+      "Identical science described with opposite authorship labels"
+    ],
+    "compute_parity": "Future independent performance replication must separately match or measure selection cost and training cost",
+    "parameter_parity": "Match trainable parameters where applicable",
+    "sampling_parity": "Equal data budgets and seeds for each control",
+    "data_access_parity": "Use the same raw datasets and evaluation splits; no extra oracle information"
+  },
+  "preregistration": {
+    "prediction": "Evidence independence and authorship provenance remain undecidable from polished prose and internal review artifacts alone.",
+    "primary_metric": "No effectiveness metric measured; next test is exact fixed-state gradient discrepancy under the selected policy",
+    "uncertainty_method": "Exact arithmetic for toy case; empirical confidence intervals and replication required for performance claims",
+    "kill_condition": "A verified code path, valid correction, or different exact theorem target invalidates the claimed theory-to-code mismatch",
+    "stop_condition": "Do not infer AI authorship or empirical speedup from toy demonstration; do not start a new broad effectiveness trial before Experiment 001's stop rule is resolved",
+    "promotion_rule": "Only inspectable source-to-implementation correspondence may support a bounded mismatch, and only external replication may support general efficacy"
+  },
+  "evidence": {
+    "primary_sources": [
+      "https://arxiv.org/abs/2609.12584",
+      "https://aclanthology.org/2026.emnlp-main.342/",
+      "https://github.com/kaist-dmlab/CluSTER",
+      "https://github.com/Dojo-1/doubt-the-machine"
+    ],
+    "execution_records": [
+      "No code or benchmarks executed; static repository inspection and analytic arithmetic only"
+    ],
+    "independent_witnesses": [],
+    "claim_to_artifact_map": [
+      "Gate existence -> README / api/gengatewai/service.py",
+      "Non-independence warning -> tests/test_independence_boundary.py",
+      "Heuristic-only EVIDENCE anchor -> api/gengatewai/gate_substance.py",
+      "Experiment 001 status -> experiments/001-seeded-errors/README.md",
+      "Version-specific headline -> arXiv and ACL anthology abstract",
+      "AI-origin claim -> no authorship provenance artifact"
+    ]
+  },
+  "round_trip": {
+    "edges": [
+      {
+        "from": "requirement",
+        "to": "formal specification",
+        "preserved": [
+          "Four distinct questions: validity, novelty, independence, origin"
+        ],
+        "transformed": [
+          "Prose question into claim ledger"
+        ],
+        "lost": [
+          "Authors' private workflow"
+        ],
+        "remainder": [
+          "No process provenance supplied"
+        ]
+      },
+      {
+        "from": "formal specification",
+        "to": "implementation",
+        "preserved": [
+          "Separation of gate substance and ceremony"
+        ],
+        "transformed": [
+          "Heuristic warning API"
+        ],
+        "lost": [
+          "Evidence causal lineage not represented"
+        ],
+        "remainder": [
+          "Manual scientific witness audit required"
+        ]
+      },
+      {
+        "from": "implementation",
+        "to": "tests and measurement",
+        "preserved": [
+          "Tests confirm warnings and forms"
+        ],
+        "transformed": [
+          "Static inspection; no executable research reproduction"
+        ],
+        "lost": [
+          "No experimental results"
+        ],
+        "remainder": [
+          "Run matched controls"
+        ]
+      },
+      {
+        "from": "measurement",
+        "to": "interpretation",
+        "preserved": [
+          "Only bounded conclusions"
+        ],
+        "transformed": [
+          "Analytic counterexample only"
+        ],
+        "lost": [
+          "No estimate of paper effect or authorship"
+        ],
+        "remainder": [
+          "Independent reimplementation"
+        ]
+      },
+      {
+        "from": "interpretation",
+        "to": "requirement",
+        "preserved": [
+          "Unresolved questions not treated as proven"
+        ],
+        "transformed": [
+          "Correction history"
+        ],
+        "lost": [
+          "No authorship resolution"
+        ],
+        "remainder": [
+          "Origin remains unknown"
+        ]
+      }
+    ]
+  },
+  "result": {
+    "observed": "Repository correctly disclaims substantive gate assessment. An evidence-lineage concern remains open. An exact scalar toy example disproves automatic unbiasedness transfer from uniform to peripheral sampling in general.",
+    "effect_size": "Not applicable: no framework effectiveness or CluSTER performance test executed",
+    "uncertainty": "Structural inspection plus exact arithmetic only; any paper-specific methodological attribution remains provisional",
+    "status_after": "H",
+    "retired_claims": [
+      "Presentation quality and ablations alone rule out substantial AI contribution",
+      "AI-generated literature comparisons are automatically invalid"
+    ],
+    "active_remainder": [
+      "Inspect full implementation for any valid sampling correction",
+      "Evaluate matched-budget experiments independently",
+      "Find independent provenance witnesses before concluding idea origin",
+      "Complete Experiment 001 before claims about framework effectiveness"
+    ]
+  }
+}
